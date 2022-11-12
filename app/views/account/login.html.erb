@@ -8,6 +8,13 @@
     <img src="../themes/zenmine/customize/ms-symbollockup_signin_dark.svg" alt="ms_logo">
   </a>
 
+  <script>
+    const back_url = new URLSearchParams(window.location.search).get('back_url');
+    if (back_url != null){
+      document.getElementsByClassName("mslogin")[0].href = "/auth/saml?origin="+back_url;
+    }
+  </script>
+
   <label for="username"><%=l(:field_login)%></label>
   <%= text_field_tag 'username', params[:username], :tabindex => '1' %>
 
